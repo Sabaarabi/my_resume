@@ -7,6 +7,10 @@ body, html {
     line-height: 1.5;
 }
 
+.profile img:hover {
+    transform: scale(1.20);
+}
+
 /* General transition for all sections */
 .skills, .languages, .summary, .education, .experience, .certificates, .projects {
     transition: transform 0.3s ease, filter 0.3s ease;
