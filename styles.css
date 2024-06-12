@@ -11,6 +11,11 @@ body, html {
     transform: scale(1.20);
 }
 
+.line-break {
+    margin-top: 1em; /* Adjust the value to achieve the desired space */
+}
+
+
 /* General transition for all sections */
 .skills, .languages, .summary, .education, .experience, .certificates, .projects {
     transition: transform 0.3s ease, filter 0.3s ease;
