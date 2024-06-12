@@ -26,7 +26,7 @@ body, html {
 .resume-container:hover .certificates, 
 .resume-container:hover .profile, 
 .resume-container:hover .projects {
-    filter: blur(7px); /* Blur other sections */
+    filter: blur(50px); /* Blur other sections */
 }
 
 /* Prevent blurring of the hovered section */
