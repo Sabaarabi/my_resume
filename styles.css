@@ -11,9 +11,6 @@ body, html {
     transform: scale(1.20);
 }
 
-.line-break {
-    margin-top: 1em; /* Adjust the value to achieve the desired space */
-}
 
 
 /* General transition for all sections */
