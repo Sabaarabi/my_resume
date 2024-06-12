@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabi-Saba Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, html {
+            font-family: Arial, sans-serif;
+            background-color: #e1e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.5;
+        }
+
+/* General transition for all sections */
+.skills, .languages, .summary, .education, .experience, .certificates, .projects {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover effect for zoom and blur */
+.skills:hover, .languages:hover, .summary:hover, .education:hover, .experience:hover, .certificates:hover, .projects:hover {
+    transform: scale(1.03); /* Zoom in */
+    filter: none; /* Ensure the hovered section is not blurred */
+}
+
+.resume-container:hover .skills, 
+.resume-container:hover .languages, 
+.resume-container:hover .summary, 
+.resume-container:hover .education, 
+.resume-container:hover .experience, 
+.resume-container:hover .certificates, 
+.resume-container:hover .profile, 
+.resume-container:hover .projects {
+    filter: blur(7px); /* Blur other sections */
+}
+
+/* Prevent blurring of the hovered section */
+.resume-container:hover .skills:hover, 
+.resume-container:hover .languages:hover, 
+.resume-container:hover .summary:hover, 
+.resume-container:hover .education:hover, 
+.resume-container:hover .experience:hover, 
+.resume-container:hover .certificates:hover, 
+.resume-container:hover .profile:hover, 
+.resume-container:hover .projects:hover {
+    filter: none; /* Remove blur from hovered section */
+}
+
+
+        .header {
+            position: absolute;
+            display: flex;
+            top: -33px;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+        }
+
+
+        @keyframes fillRed {
+    0% { clip-path: inset(0% 100% 0% 0%); fill: transparent; }
+    100% { clip-path: inset(0% 0% 0% 0%); fill: #a71e3e; }
+}
+
+@keyframes fillBlue {
+    0% { clip-path: inset(0% 0% 0% 100%); fill: transparent; }
+    100% { clip-path: inset(0% 0% 0% 0%); fill: #20364e; }
+}
+
+        .profile img:hover {
+            transform: scale(1.20);
+        }
+
+   /* Ensure text stays within the yellow column */
+.left-column {
+    overflow: hidden; /* Prevent text overflow */
+}
+
+/* Center icons vertically in the row */
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust as needed for spacing */
+    word-break: break-word; /* Handle long text */
+}
+
+.info-row i {
+    margin-right: 10px; /* Adjust as needed for spacing */
+    align-self: flex-start; /* Align icons to the start */
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.info-row a, .info-row span, .info-row small {
+    flex: 1; /* Ensures the text takes up the remaining space */
+    text-align: left;
+}
+
+        .profile-wrapper {
+            position: relative;
+            z-index: 2; /* Ensure profile wrapper is above the header */
+            text-align: center;
+        }
+
+        a:link {
+            color: rgb(87, 48, 67);
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        .resume-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.707);
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        .left-column, .right-column {
+            width: 100%;
+            padding: 14px;
+            box-sizing: border-box;
+        }
+
+        .left-column {
+    background-color: #fff; /* Initially white */
+    animation: yellowFade 2s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes yellowFade {
+    from {
+        background-color: #fff;
+    }
+    to {
+        background-color: #efe08d;
+    }
+}
+        .right-column {
+            background-color: #fff;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* Ensures the image remains circular */
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        .profile h1 {
+            text-align: center;
+            line-height: 1;
+        }
+
+        .profile p {
+            text-align: left;
+            margin: 5px;
+            line-height: 1.8;  
+        }
+
+        .profile i {
+            margin-right: 10px;
+        }
+
+        h2 {
+            background-color: #dedede9d;
+            color: rgb(23, 0, 87);
+            padding: 5px;
+            margin: 0 0 10px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills ul li, .languages ul li {
+            margin-bottom: 10px;
+        }
+
+        .skills, .languages, .summary, .education, .experience, .certificates, .projects {
+            margin-bottom: 20px;
+        }
+
+        .right-column p, .right-column ul li {
+            margin: 10px 0 25px 0;
+        }
+
+        .right-column small {
+            display: block;
+            color: #1b0064;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .skill {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .skill-name {
+            text-align: left;
+            margin-right: 0px;
+        }
+
+        .circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid black;
+            background: conic-gradient(#090342 calc(var(--percent) * 1%), #eeeeee 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: white;
+        }
+
+        .circle[data-percent='90'] {
+            --percent: 90;
+        }
+
+        .circle[data-percent='80'] {
+            --percent: 80;
+        }
+
+        .circle[data-percent='70'] {
+            --percent: 70;
+        }
+
+        .circle[data-percent='75'] {
+            --percent: 75;
+        }
+
+        .circle[data-percent='85'] {
+            --percent: 85;
+        }
+
+        .circle[data-percent='60'] {
+            --percent: 60;
+        }
+
+        .circle[data-percent='65'] {
+            --percent: 65;
+        }
+
+        .circle[data-percent='55'] {
+            --percent: 55;
+        }
+
+        .languages ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .language-skill {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .language-icons {
+            display: flex;
+            gap: 5px;
+            color: #090342;
+        }
+
+        /* Media Queries */
+        @media (min-width: 600px) {
+            .resume-container {
+                flex-direction: row;
+            }
+
+            .left-column {
+                width: 35%;
+            }
+
+            .right-column {
+                margin-top: 100px;
+                width: 65%;
+            }
+
+            .profile img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .circle {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .resume-container {
+                flex-direction: column;
+                width: 100%;
+                margin: 0 10px;
+            }
+
+            .header {
+                top: -41px;
+            }
+
+            .left-column, .right-column {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .profile img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%; /* Ensures the image remains circular */
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .skill-name {
+                margin-right: 15px;
+            }
+
+            .skills-grid {
+                gap: 15px;
+            }
+
+            .circle {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            .skill {
+                justify-content: space-between;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .skills-grid {
+                flex-direction: column; /* Changed to column to maintain single column until wider */
+            }
+
+            .skill {
+                width: 100%; /* Set to 100% to ensure uniform size */
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .resume-container {
+                flex-wrap: nowrap;
+            }
+
+            .skills-grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .skill {
+                width: calc(50% - 5px); /* Adjusted to fit two columns */
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <svg width="100%" height="150px" viewBox="0 0 100 15" xmlns="http://www.w3.org/2000/svg">
+                <!-- Original Polygon -->
+                <polygon points="0,0 100,0 0,17" style="fill:transparent; animation: fillRed 5s 2s forwards;"></polygon>
+                <!-- Mirrored Polygon -->
+                <polygon points="100,0 20,0 100,17" style="fill:transparent; animation: fillBlue 5s 2s forwards;"></polygon>
+            </svg>
+        </div>
+        
+        <div class="left-column">
+            <div class="profile-wrapper">
+                <div class="profile">
+                    <source srcset="https://drive.google.com/uc?export=view&id=1VNm3TAADLu9EicOiHmBw6rjj9LosamcU" type="image/avif">
+                    <source srcset="https://drive.google.com/uc?export=view&id=107CBZ_feLsES8fGxrLMCv8I0DiOHLYZo" type="image/webp">
+                    <img src="https://s8.uupload.ir/files/sabaarabi_dol.jpg" alt="Profile Picture">
+                    <h1>Saba Arabi Basharik</h1>
+                    <div class="info-row">
+                        <i class="fa-fw fas fa-birthday-cake"></i>
+                        Born in 2001
+                    </div>
+                    <div class="info-row">
+                        <i class="fa-fw fas fa-heart"></i>
+                        <span>Marital status: Single</span>
+                    </div>
+                    <div class="info-row">
+                        <i class="fa-fw fas fa-envelope"></i>
+                        <a href="mailto:sabaarabi9@gmail.com">Sabaarabi9@gmail.com</a>
+                    </div>
+                    <div class="info-row">
+                        <i class="fa-fw fas fa-phone"></i>
+                        <a href="tel:+989025264080">+98 9025264080</a>
+                    </div>
+                    <div class="info-row">
+                        <i class="fa-fw fas fa-map-marker-alt"></i>
+                        <a class="address-link" href="https://maps.app.goo.gl/aEX2gCpwn9SZ4J2H8">Akhund Khorasani Street, Mashhad, Iran</a>
+                    </div>
+                </div>
+            </div>
+            <div class="skills">
+                <hr>
+                <h2>Skills</h2>
+                <hr>
+                <div class="skills-grid">
+                    <div class="skill">
+                        <span class="skill-name">Office</span>
+                        <div class="circle" data-percent="90"></div>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Python</span>
+                        <div class="circle" data-percent="60"></div>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">Photoshop</span>
+                        <div class="circle" data-percent="80"></div>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">SQL</span>
+                        <div class="circle" data-percent="60"></div>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">HTML</span>
+                        <div class="circle" data-percent="70"></div>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">CSS</span>
+                        <div class="circle" data-percent="60"></div>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">AutoCAD</span>
+                        <div class="circle" data-percent="80"></div>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">SPSS</span>
+                        <div class="circle" data-percent="55"></div>
+                    </div>
+                    <div class="skill">
+                        <span class="skill-name">GIS</span>
+                        <div class="circle" data-percent="80"></div>
+                    </div>
+
+                    <div class="skill">
+                        <span class="skill-name">SketchUp</span>
+                        <div class="circle" data-percent="60"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="languages">
+                <hr>
+                <h2>Language Skills</h2>
+                <hr>
+                <p><b><i>English:</i></b></p>
+                <ul>
+                    <li>
+                        <div class="language-skill">
+                            Reading
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-skill">
+                            Writing
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-skill">
+                            Listening
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-skill">
+                            Speaking
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <p><b><i>Arabic:</i></b></p>
+                    <li>
+                        <div class="language-skill">
+                            Reading
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-skill">
+                            Writing
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-skill">
+                            Listening
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-skill">
+                            Speaking
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <p><b><i>Turkish:</i></b></p>
+                    <li>
+                        <div class="language-skill">
+                            Reading
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-skill">
+                            Writing 
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-skill">
+                            Listening
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-skill">
+                            Speaking
+                            <span class="language-icons">
+                                <i class="fas fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                                <i class="far fa-circle"></i>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="summary">
+                <h2>Resume Summary</h2>
+                <p>Interested in learning new things; gaining experience; striving to be committed, disciplined, and responsible; with perseverance.</p>
+            </div>
+            <div class="education">
+                <h2>Educational Records</h2>
+                <ul>
+                    <li>Diploma in Mathematics<br>Institution: Allameh Tabatabai School</li><br>
+                    <li>Bachelor of Urban Engineering<br>Institution: Ferdowsi University of Mashhad<br><small>GPA : 17.14</small><small>2018-2022</small></li>
+                </ul>
+            </div>
+            <div class="experience">
+                <h2>Work Experience</h2>
+                <p>Accountant<br>Shatoot Accounting Software Company<br><small>2019-Now</small></p>
+            </div>
+            <div class="certificates">
+                <h2>Courses and Certificates</h2>
+                <ul>
+                    <li>English training up to High 3 level<br>Institute: Iran Language Institute</li><br>
+                    <li>Solfege and Setar trainings<br>Institute: Jihad University of Mashhad</li><br>
+                    <li>Python introductory course<br>Institute: Jihad University of Mashhad</li>
+                </ul>
+            </div>
+            <div class="projects">
+                <h2>Projects</h2>
+                <ul>
+                    <li><ins>Thesis topic</ins>:<br><br> Strategic Planning from Children's Perspective (Case Study: Arvand Neighborhood, Mashhad)</li><br>
+                    <li><em><ins>Accounting project</ins></em><br><br><i>client</i>: Etihad Aria Cooperative Company</li><br>
+                    <li><em><ins>Accounting project</ins></em><br><br><i>client</i>: Sohan Mahdi Company</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
